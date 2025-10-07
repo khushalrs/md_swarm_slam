@@ -1,0 +1,97 @@
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 160
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        {}
+    - Class: rviz_default_plugins/Pose
+      Enabled: true
+      Name: Robot1 Pose
+      Topic:
+        Value: /r1/cslam/current_pose_estimate
+      Axes Length: 0.8
+      Axes Radius: 0.03
+      Shape: Axes
+    - Class: rviz_default_plugins/Pose
+      Enabled: true
+      Name: Robot2 Pose
+      Topic:
+        Value: /r2/cslam/current_pose_estimate
+      Axes Length: 0.8
+      Axes Radius: 0.03
+      Shape: Axes
+    - Class: rviz_default_plugins/Image
+      Name: Drone1 RGB (preview)
+      Enabled: false
+      Image Topic:
+        Value: /drone1/rgb_camera
+      Normalize Range: true
+      Min Value: 0
+      Max Value: 1
+      Median window: 5
+      Queue Size: 2
+    - Class: rviz_default_plugins/Image
+      Name: Drone2 RGB (preview)
+      Enabled: false
+      Image Topic:
+        Value: /drone2/rgb_camera
+      Normalize Range: true
+      Min Value: 0
+      Max Value: 1
+      Median window: 5
+      Queue Size: 2
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: robot1_map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/Measure
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/PublishPoint
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 15
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Orbit (Map)
+      Pitch: 0.5
+      Target Frame: robot1_map
+      Yaw: 0.8
+    Saved: ~

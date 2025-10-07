@@ -1,0 +1,19 @@
+/**:
+  ros__parameters:
+    use_sim_time: true
+
+    backend:
+      optimize_rate_hz: 5.0
+      max_num_robots: 2
+      save_graph: true
+      graph_output: "/home/frazergene/drone/drone_ws/maps/global_graph.g2o"
+
+    comm:
+      transport: "ros2"
+      topic_ns: "/cslam"
+
+    loop_closure:
+      detection_rate_hz: 1.0
+      min_inliers: 20
+      ransac_threshold: 3.0
+      use_semantics: false

@@ -1,0 +1,65 @@
+/**:
+  ros__parameters:
+    # Common
+    use_sim_time: true
+    robot_id: 1
+    max_nb_robots: 2
+
+    # Frontend (RGB-D) — aligned with cslam_experiments
+    frontend:
+      sensor_type: "rgbd"
+      # Topics are relative to the robot namespace (drone1)
+      # Your setup publishes without "/image" suffixes:
+      color_image_topic: "/drone1/rgb_camera"
+      color_camera_info_topic: "/drone1/camera_info"
+      depth_image_topic: "/drone1/depth_camera"
+      odom_topic: "odom"
+
+      inter_robot_loop_closure_budget: 1
+      inter_robot_detection_period_sec: 1
+      max_queue_size: 100
+      similarity_threshold: 0.8
+      global_descriptors_topic: "global_descriptors"
+      image_crop_size: 376
+      intra_loop_min_inbetween_keyframes: 8
+      pnp_min_inliers: 100
+      detection_publication_period_sec: 1.0
+      detection_publication_max_elems_per_msg: 10
+      enable_intra_robot_loop_closures: true
+      keyframe_generation_ratio_threshold: 0.5
+      use_vertex_cover_selection: true
+      map_manager_process_period_ms: 100
+      enable_sparsification: true
+
+      # Global descriptor (CosPlace)
+      global_descriptor_technique: "cosplace"
+      # IMPORTANT: use a relative path so cslam resolves it in its share dir
+      nn_checkpoint: "/home/frazergene/drone/drone_ws/src/Swarm-SLAM/src/cslam/models/resnet18_64.pth"
+      cosplace:
+        backbone: "resnet18"
+        descriptor_dim: 64
+
+    neighbor_management:
+      enable_neighbor_monitoring: true
+      max_heartbeat_delay_sec: 5.0
+      init_delay_sec: 5.0
+      heartbeat_period_sec: 1.0
+
+    backend:
+      pose_graph_optimization_start_period_ms: 10000
+      pose_graph_optimization_loop_period_ms: 100
+      max_waiting_time_sec: 60
+      enable_broadcast_tf_frames: true
+
+    evaluation:
+      enable_logs: false
+      log_folder: "results"
+      enable_gps_recording: false
+      gps_topic: "gps/fix"
+      enable_sparsification_comparison: false
+
+    visualization:
+      enable: true
+      publishing_period_ms: 500
+      voxel_size: 0.2
+      max_range: 4.0
